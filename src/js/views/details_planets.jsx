@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export class Details extends React.Component {
+export class DetailsPlanets extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -11,7 +11,7 @@ export class Details extends React.Component {
 
 	componentDidMount = () => {
 		fetch(
-			"https://swapi.co/api/people/" +
+			"https://swapi.co/api/planets/" +
 				this.props.match.params.theid +
 				"?format=json"
 		)
@@ -30,43 +30,43 @@ export class Details extends React.Component {
 					</div>
 					<div className="col-6">
 						<h3>{this.state.detailList.name}</h3>
-						<p>Epic backstory of character....</p>
+						<p>Epic description of planet....</p>
 					</div>
 				</div>
 				<div className="row mt-5">
 					<div className="col descriptionColumns">
-						<h6>Gender</h6>
-						{this.state.detailList.gender}
+						<h6>Population</h6>
+						{this.state.detailList.population}
 						<br />
 					</div>
 					<div className="col descriptionColumns">
-						<h6>Height</h6>
-						{this.state.detailList.height}
+						<h6>Climate</h6>
+						{this.state.detailList.climate}
 						<br />
 					</div>
 					<div className="col descriptionColumns">
-						<h6>Mass</h6>
-						{this.state.detailList.mass}
+						<h6>Gravity</h6>
+						{this.state.detailList.gravity}
 						<br />
 					</div>
 					<div className="col descriptionColumns">
-						<h6>Hair Color</h6>
-						{this.state.detailList.hair_color}
+						<h6>Orbital Period</h6>
+						{this.state.detailList.orbital_period}
 						<br />
 					</div>
 					<div className="col descriptionColumns">
-						<h6>Eye Color</h6>
-						{this.state.detailList.eye_color}
+						<h6>Rotation Period</h6>
+						{this.state.detailList.rotation_period}
 						<br />
 					</div>
 					<div className="col descriptionColumns">
-						<h6>Skin Color</h6>
-						{this.state.detailList.skin_color}
+						<h6>Surface Water</h6>
+						{this.state.detailList.surface_water}
 						<br />
 					</div>
 					<div className="col descriptionColumns">
-						<h6>Birth Year</h6>
-						{this.state.detailList.birth_year}
+						<h6>Terrain</h6>
+						{this.state.detailList.terrain}
 						<br />
 					</div>
 				</div>
@@ -75,6 +75,6 @@ export class Details extends React.Component {
 	}
 }
 
-Details.propTypes = {
+DetailsPlanets.propTypes = {
 	match: PropTypes.object
 };

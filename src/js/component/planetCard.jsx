@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function VehicleCard(props) {
+function PlanetCard(props) {
 	return (
 		<div className="card w-50">
 			<img
@@ -13,10 +13,10 @@ function VehicleCard(props) {
 			<div className="card-body">
 				<h5 className="card-title">{props.name}</h5>
 				<p className="card-text">
-					Vehicle Name: {props.name} <br />
-					Model: {props.model}
+					Planet Name: {props.name} <br />
+					Population: {props.population}
 				</p>
-				<Link to={"/details/" + (props.camel + 1)}>
+				<Link to={"/details_planets/" + (props.camel + 1)}>
 					<a href="#" className="btn btn-primary">
 						Details
 					</a>
@@ -26,10 +26,10 @@ function VehicleCard(props) {
 	);
 }
 
-export default VehicleCard;
+export default PlanetCard;
 
-VehicleCard.propTypes = {
+PlanetCard.propTypes = {
 	name: PropTypes.string,
-	model: PropTypes.string,
+	population: PropTypes.string,
 	camel: PropTypes.string
 };

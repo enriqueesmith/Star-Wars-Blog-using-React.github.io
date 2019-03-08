@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function SingleCard(props) {
+function PeopleCard(props) {
 	return (
 		<div className="card w-50">
 			<img
@@ -26,9 +26,9 @@ function SingleCard(props) {
 	);
 }
 
-export default SingleCard;
+export default PeopleCard;
 
-SingleCard.propTypes = {
+PeopleCard.propTypes = {
 	name: PropTypes.string,
 	gender: PropTypes.string,
 	camel: PropTypes.string

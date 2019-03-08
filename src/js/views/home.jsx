@@ -1,13 +1,13 @@
 import React from "react";
-import SingleCard from "../component/singlecard.jsx";
-import VehicleCard from "../component/vehicleCard.jsx";
+import PeopleCard from "../component/peoplecard.jsx";
+import PlanetCard from "../component/planetCard.jsx";
 
 export class Home extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			people: [],
-			vehicles: []
+			planets: []
 		};
 	}
 
@@ -15,9 +15,9 @@ export class Home extends React.Component {
 		fetch("https://swapi.co/api/people/")
 			.then(res => res.json())
 			.then(people => this.setState({ people: people.results }));
-		fetch("https://swapi.co/api/vehicles/")
+		fetch("https://swapi.co/api/planets/")
 			.then(res => res.json())
-			.then(vehicles => this.setState({ vehicles: vehicles.results }));
+			.then(planets => this.setState({ planets: planets.results }));
 	};
 
 	render() {
@@ -27,7 +27,7 @@ export class Home extends React.Component {
 				<div className="card-columns d-flex justify-content-between">
 					{this.state.people.map((elem, index) => {
 						return (
-							<SingleCard
+							<PeopleCard
 								name={elem.name}
 								gender={elem.gender}
 								key={index}
@@ -36,14 +36,15 @@ export class Home extends React.Component {
 						);
 					})}
 				</div>
-				<h2> Vehicles </h2>
+				<h2> Planets </h2>
 				<div className="card-columns d-flex justify-content-between">
-					{this.state.vehicles.map((elem, index) => {
+					{this.state.planets.map((elem, index) => {
 						return (
-							<VehicleCard
+							<PlanetCard
 								name={elem.name}
-								model={elem.model}
+								population={elem.population}
 								key={index}
+								camel={index}
 							/>
 						);
 					})}

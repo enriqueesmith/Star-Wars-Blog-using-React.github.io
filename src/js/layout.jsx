@@ -6,6 +6,7 @@ import { Home } from "./views/home.jsx";
 import { Demo } from "./views/demo.jsx";
 import { Single } from "./views/single.jsx";
 import { Details } from "./views/details.jsx";
+import { DetailsPlanets } from "./views/details_planets.jsx";
 import Store from "./store/appContext.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
@@ -22,6 +23,10 @@ export class Layout extends React.Component {
 						<Route exact path="/" component={Home} />
 						<Route path="/demo" component={Demo} />
 						<Route path="/details/:theid" component={Details} />
+						<Route
+							path="/details_planets/:theid"
+							component={DetailsPlanets}
+						/>
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 					<Footer />
