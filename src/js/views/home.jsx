@@ -23,31 +23,35 @@ export class Home extends React.Component {
 	render() {
 		return (
 			<div className="container-fluid text-center mt-5">
-				<h2> People </h2>
-				<div className="card-columns d-flex justify-content-between">
-					{this.state.people.map((elem, index) => {
-						return (
-							<PeopleCard
-								name={elem.name}
-								gender={elem.gender}
-								key={index}
-								camel={index}
-							/>
-						);
-					})}
+				<div className="row character">
+					<h2> People </h2>
+					<div className="card-columns d-flex justify-content-between">
+						{this.state.people.map((elem, index) => {
+							return (
+								<PeopleCard
+									name={elem.name}
+									gender={elem.gender}
+									key={index}
+									camel={index}
+								/>
+							);
+						})}
+					</div>
 				</div>
-				<h2> Planets </h2>
-				<div className="card-columns d-flex justify-content-between">
-					{this.state.planets.map((elem, index) => {
-						return (
-							<PlanetCard
-								name={elem.name}
-								population={elem.population}
-								key={index}
-								camel={index}
-							/>
-						);
-					})}
+				<div className="row character">
+					<h2> Planets </h2>
+					<div className="card-columns d-flex justify-content-between">
+						{this.state.planets.map((elem, index) => {
+							return (
+								<PlanetCard
+									name={elem.name}
+									population={elem.population}
+									key={index}
+									camel={index}
+								/>
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		);

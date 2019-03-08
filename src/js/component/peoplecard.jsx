@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 function PeopleCard(props) {
 	return (
-		<div className="card w-50">
+		<div className="card">
 			<img
 				className="card-img-top"
-				src="https://via.placeholder.com/100"
+				src="https://via.placeholder.com/200"
 				alt="Card image cap"
 			/>
 			<div className="card-body">

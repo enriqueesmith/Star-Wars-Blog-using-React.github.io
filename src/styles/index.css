@@ -29,3 +29,8 @@ h6{
  border-right: 1px solid white;   
  height: 300px;
 }
+.character{
+    background: black;
+    overflow-x: auto;
+    white-space: nowrap;
+}

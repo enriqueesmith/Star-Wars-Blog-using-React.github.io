@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function PlanetCard(props) {
 	return (
-		<div className="card w-50">
+		<div className="card">
 			<img
 				className="card-img-top"
 				src="https://via.placeholder.com/200"
