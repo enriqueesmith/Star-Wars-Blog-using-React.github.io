@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext.jsx";
 
 function PlanetCard(props) {
 	return (
@@ -21,6 +22,19 @@ function PlanetCard(props) {
 						Details
 					</a>
 				</Link>
+				<Context.Consumer>
+					{({ actions }) => {
+						return (
+							<button
+								className="ml-3 btn btn-primary"
+								onClick={() =>
+									actions.addToFavorites(props.name)
+								}>
+								Add to Favorites!
+							</button>
+						);
+					}}
+				</Context.Consumer>
 			</div>
 		</div>
 	);
@@ -31,5 +45,5 @@ export default PlanetCard;
 PlanetCard.propTypes = {
 	name: PropTypes.string,
 	population: PropTypes.string,
-	camel: PropTypes.string
+	camel: PropTypes.number
 };

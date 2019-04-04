@@ -1,34 +1,46 @@
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
-			demo: [
+			favorites: [
 				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
+					name: "Luke Skywalker",
+					path:
+						"http://star-wars-blog-using-react-enriqueesmith.c9users.io:8080/details/1"
 				},
 				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
+					name: "Alderaan",
+					path:
+						"http://star-wars-blog-using-react-enriqueesmith.c9users.io:8080/details_planets/1"
 				}
-			]
+			],
+
+			detailsPeoples: [],
+			detailsPlanets: []
 		},
 		actions: {
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+			addToFavorites: koala => {
+				var tempStore = getStore();
+				var newFavorite = {
+					name: koala
+				};
+				tempStore.favorites.push(newFavorite);
+				setStore({ tempStore });
 			}
+			/*
+			getPeople: () => {
+				fetch(
+					"https://swapi.co/api/people/" +
+						this.props.match.params.theid +
+						"?format=json"
+				)
+					.then(res => res.json())
+					.then(horse => {
+						var temp = getStore();
+						temp.people = horse;
+						setStore({ temp });
+					});
+					
+			}*/
 		}
 	};
 };

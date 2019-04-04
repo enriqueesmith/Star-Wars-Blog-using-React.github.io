@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext.jsx";
 
 function PeopleCard(props) {
 	return (
@@ -21,6 +22,19 @@ function PeopleCard(props) {
 						Details
 					</a>
 				</Link>
+				<Context.Consumer>
+					{({ actions }) => {
+						return (
+							<button
+								className="ml-3 btn btn-primary"
+								onClick={() =>
+									actions.addToFavorites(props.name)
+								}>
+								Add to Favorites!
+							</button>
+						);
+					}}
+				</Context.Consumer>
 			</div>
 		</div>
 	);
@@ -31,5 +45,5 @@ export default PeopleCard;
 PeopleCard.propTypes = {
 	name: PropTypes.string,
 	gender: PropTypes.string,
-	camel: PropTypes.string
+	camel: PropTypes.number
 };

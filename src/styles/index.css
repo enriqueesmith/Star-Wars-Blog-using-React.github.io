@@ -15,9 +15,15 @@ body{
     margin: 5px;
 }
 
-h2, h3, p{
+h3, p{
     color: white;
     text-align: left;
+}
+
+h2{
+    color: white;
+    text-align: left;
+    margin-left: 5px;
 }
 
 h6{

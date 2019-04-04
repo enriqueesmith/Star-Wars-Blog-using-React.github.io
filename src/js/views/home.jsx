@@ -1,24 +1,13 @@
 import React from "react";
 import PeopleCard from "../component/peoplecard.jsx";
 import PlanetCard from "../component/planetCard.jsx";
+import { Context } from "../store/appContext.jsx";
 
 export class Home extends React.Component {
 	constructor() {
 		super();
-		this.state = {
-			people: [],
-			planets: []
-		};
+		this.state = {};
 	}
-
-	componentDidMount = () => {
-		fetch("https://swapi.co/api/people/")
-			.then(res => res.json())
-			.then(people => this.setState({ people: people.results }));
-		fetch("https://swapi.co/api/planets/")
-			.then(res => res.json())
-			.then(planets => this.setState({ planets: planets.results }));
-	};
 
 	render() {
 		return (
@@ -26,31 +15,43 @@ export class Home extends React.Component {
 				<div className="row character">
 					<h2> People </h2>
 					<div className="card-columns d-flex justify-content-between">
-						{this.state.people.map((elem, index) => {
-							return (
-								<PeopleCard
-									name={elem.name}
-									gender={elem.gender}
-									key={index}
-									camel={index}
-								/>
-							);
-						})}
+						<Context.Consumer>
+							{({ store }) => {
+								return store.detailsPeoples.map(
+									(elem, index) => {
+										return (
+											<PeopleCard
+												name={elem.name}
+												gender={elem.gender}
+												key={index}
+												camel={index}
+											/>
+										);
+									}
+								);
+							}}
+						</Context.Consumer>
 					</div>
 				</div>
 				<div className="row character">
 					<h2> Planets </h2>
 					<div className="card-columns d-flex justify-content-between">
-						{this.state.planets.map((elem, index) => {
-							return (
-								<PlanetCard
-									name={elem.name}
-									population={elem.population}
-									key={index}
-									camel={index}
-								/>
-							);
-						})}
+						<Context.Consumer>
+							{({ store }) => {
+								return store.detailsPlanets.map(
+									(elem, index) => {
+										return (
+											<PlanetCard
+												name={elem.name}
+												gender={elem.gender}
+												key={index}
+												camel={index}
+											/>
+										);
+									}
+								);
+							}}
+						</Context.Consumer>
 					</div>
 				</div>
 			</div>

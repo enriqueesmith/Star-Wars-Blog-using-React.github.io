@@ -20,6 +20,22 @@ const Store = PassedComponent => {
 			// this function is the equivalent to "window.onLoad"
 			// it only run once on the entire application lifetime
 			// you should do your ajax requests here
+			fetch("https://swapi.co/api/people/")
+				.then(response => response.json())
+				.then(data => {
+					let { store } = this.state;
+					store.detailsPeoples = data.results;
+					this.setState({ store });
+					console.log(data);
+				});
+			fetch("https://swapi.co/api/planets/")
+				.then(response => response.json())
+				.then(dataPlanets => {
+					let { store } = this.state;
+					store.detailsPlanets = dataPlanets.results;
+					this.setState({ store });
+					console.log(dataPlanets);
+				});
 		}
 
 		render() {
