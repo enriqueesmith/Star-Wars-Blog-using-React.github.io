@@ -1,3 +1,10 @@
+# Star Wars Blog using React
+
+An online blog/database of information about people and planets in the Star Wars Universe built using HTML, CSS, JavaScript, Webpack and ReactJS. This blog fetches the information that populates it directly from a third party API (swapi.co).
+
+See the Live Demo here: https://enriqueesmith.github.io/Star-Wars-Blog-using-React.github.io/ .
+
+
 # WebApp boilerplate with React and Cloud 9
 
 Requirements: Make sure you are using node version 8
